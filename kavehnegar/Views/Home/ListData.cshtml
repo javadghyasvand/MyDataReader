@@ -1,0 +1,37 @@
+﻿@model IEnumerable<kavehnegar.Models.MyTBL>
+
+@{
+    ViewBag.Title = "ListData";
+}
+
+
+@if (Model.Any())
+{
+    <div id="customer-orders" class="container">
+        <div class="box">
+            <h3 class="text-center color_defult m-4">Read Record As SQL</h3>
+            <table class="table" id="ListProperty">
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DataString)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <div id="customer-orders" class="container">
+        <div class="box">
+            <h3 class="text-center color_defult m-4">جدول</h3>
+            <div class="alert alert-danger text-center">
+                رکوردی وجود ندارد
+                <p>با کلیک روی <a href="/Home/SetToRedis" class="btn-link">لینک</a> فایل را آپلود کنید</p>
+            </div>
+        </div>
+    </div>
+}

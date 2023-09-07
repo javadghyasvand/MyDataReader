@@ -1,0 +1,24 @@
+﻿<div id="customer-orders" class="container">
+    <div class="box">
+        <h3 class="text-center color_defult">افزودن فایل اکسل</h3>
+        <hr />
+        @using (Html.BeginForm("SetToRedis", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group textalign">
+                <input type="file" style="margin: 10px;" id="fileLoad" name="fileLoad" />
+                @if (ViewBag.Error != null)
+                {
+                    <div class="alert alert-danger">@ViewBag.Error</div>
+                }
+            </div>
+            <hr />
+            <div class="row">
+                <div class="text-center col-lg-12 mt-3 mb-3">
+                    <button type="submit" class="btn btn-primary w-25"><i class="fa fa-sign-in"></i>Upload</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>

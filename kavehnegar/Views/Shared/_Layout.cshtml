@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <title>Test Project</title>
+    <!-- Bootstrap CSS-->
+    @Styles.Render("~/Content/SiteFile/vendor/bootstrap/css/bootstrap.min.css")
+    <!-- Font Awesome CSS-->
+    @Styles.Render("~/Content/SiteFile/vendor/font-awesome/css/font-awesome.min.css")
+    <!-- Google fonts - Roboto -->
+    <!-- owl carousel-->
+    @Styles.Render("~/Content/SiteFile/vendor/owl.carousel/assets/owl.carousel.css")
+    @Styles.Render("~/Content/SiteFile/vendor/owl.carousel/assets/owl.theme.default.css")
+    @Styles.Render("~/Content/SiteFile/css/style.default.css")
+    <!-- Custom stylesheet - for your changes-->
+    @Styles.Render("~/Content/SiteFile/css/custom.css")
+
+</head>
+<body>
+    @Html.Partial("Navbar")
+    <div id="all">
+        <div id="content">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>
+<!-- JavaScript files-->
+
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Content/SiteFile/vendor/jquery/jquery.min.js")
+@Scripts.Render("~/Content/SiteFile/vendor/bootstrap/js/bootstrap.bundle.min.js")
+@Scripts.Render("~/Content/SiteFile/vendor/jquery.cookie/jquery.cookie.js")
+@Scripts.Render("~/Content/SiteFile/vendor/owl.carousel/owl.carousel.min.js")
+@Scripts.Render("~/Content/SiteFile/vendor/owl.carousel2.thumbs/owl.carousel2.thumbs.js")
+@Scripts.Render("~/Content/SiteFile/js/front.js")
+
+
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+
+@RenderSection("scripts", required: false)

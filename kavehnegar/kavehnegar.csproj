@@ -1,0 +1,803 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3A102927-7272-4AF3-BABC-30A9C00C76EA}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>kavehnegar</RootNamespace>
+    <AssemblyName>kavehnegar</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44313</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.OutputCache.OutputCacheModuleAsync, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.OutputCache.OutputCacheModuleAsync.1.0.2\lib\Net462\Microsoft.AspNet.OutputCache.OutputCacheModuleAsync.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=1.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.1.4.1\lib\net46\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.RedisOutputCacheProvider, Version=4.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.RedisOutputCacheProvider.4.0.1\lib\net472\Microsoft.Web.RedisOutputCacheProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="NRedisStack, Version=0.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NRedisStack.0.8.1\lib\netstandard2.0\NRedisStack.dll</HintPath>
+    </Reference>
+    <Reference Include="Pipelines.Sockets.Unofficial, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42ea0a778e13fbe2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Pipelines.Sockets.Unofficial.2.2.2\lib\net472\Pipelines.Sockets.Unofficial.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="ServiceStack.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Common.6.10.0\lib\net472\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Interfaces.6.10.0\lib\net472\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Redis.6.10.0\lib\net472\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=6.0.0.0, Culture=neutral, PublicKeyToken=02c12cbda47e6587, processorArchitecture=MSIL">
+      <HintPath>..\packages\ServiceStack.Text.6.10.0\lib\net472\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.2.6.96\lib\net472\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.6.0.0\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.6.0.0\lib\net461\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.PerformanceCounter, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.PerformanceCounter.6.0.1\lib\net461\System.Diagnostics.PerformanceCounter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=6.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.6.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Permissions.6.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.2\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Channels.6.0.0\lib\net461\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Models\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyTBLViewModel.cs" />
+    <Compile Include="Models\MyTBL.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utilities\CacheStack.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\Excelpackege.cs" />
+    <Compile Include="Utilities\JsonClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\SiteFile\css\custom.css" />
+    <Content Include="Content\SiteFile\css\style.blue.css" />
+    <Content Include="Content\SiteFile\css\style.default.css" />
+    <Content Include="Content\SiteFile\css\style.green.css" />
+    <Content Include="Content\SiteFile\css\style.pink.css" />
+    <Content Include="Content\SiteFile\css\style.red.css" />
+    <Content Include="Content\SiteFile\css\style.sea.css" />
+    <Content Include="Content\SiteFile\css\style.violet.css" />
+    <Content Include="Content\SiteFile\img\AjaxLoader.gif" />
+    <Content Include="Content\SiteFile\img\banner.jpg" />
+    <Content Include="Content\SiteFile\img\banner2.jpg" />
+    <Content Include="Content\SiteFile\img\basketsquare.jpg" />
+    <Content Include="Content\SiteFile\img\blog-avatar.jpg" />
+    <Content Include="Content\SiteFile\img\blog-avatar2.jpg" />
+    <Content Include="Content\SiteFile\img\blog.jpg" />
+    <Content Include="Content\SiteFile\img\blog2.jpg" />
+    <Content Include="Content\SiteFile\img\detailbig1.jpg" />
+    <Content Include="Content\SiteFile\img\detailbig2.jpg" />
+    <Content Include="Content\SiteFile\img\detailbig3.jpg" />
+    <Content Include="Content\SiteFile\img\detailsquare.jpg" />
+    <Content Include="Content\SiteFile\img\detailsquare2.jpg" />
+    <Content Include="Content\SiteFile\img\detailsquare3.jpg" />
+    <Content Include="Content\SiteFile\img\getinspired1.jpg" />
+    <Content Include="Content\SiteFile\img\getinspired2.jpg" />
+    <Content Include="Content\SiteFile\img\getinspired3.jpg" />
+    <Content Include="Content\SiteFile\img\grabbing.png" />
+    <Content Include="Content\SiteFile\img\logo.png" />
+    <Content Include="Content\SiteFile\img\LogoEN.png" />
+    <Content Include="Content\SiteFile\img\main-slider1.jpg" />
+    <Content Include="Content\SiteFile\img\main-slider2.jpg" />
+    <Content Include="Content\SiteFile\img\main-slider3.jpg" />
+    <Content Include="Content\SiteFile\img\main-slider4.jpg" />
+    <Content Include="Content\SiteFile\img\marker.png" />
+    <Content Include="Content\SiteFile\img\no-photo.jpg" />
+    <Content Include="Content\SiteFile\img\product1.jpg" />
+    <Content Include="Content\SiteFile\img\product1_2.jpg" />
+    <Content Include="Content\SiteFile\img\product2.jpg" />
+    <Content Include="Content\SiteFile\img\product2_2.jpg" />
+    <Content Include="Content\SiteFile\img\product3.jpg" />
+    <Content Include="Content\SiteFile\img\product3_2.jpg" />
+    <Content Include="Content\SiteFile\img\slider1.jpg" />
+    <Content Include="Content\SiteFile\img\slider2.jpg" />
+    <Content Include="Content\SiteFile\img\slider3.jpg" />
+    <Content Include="Content\SiteFile\img\slider4.jpg" />
+    <Content Include="Content\SiteFile\img\template-mac.png" />
+    <Content Include="Content\SiteFile\js\front.js" />
+    <Content Include="Content\SiteFile\js\map.js" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\SiteFile\vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\SiteFile\vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\SiteFile\vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\SiteFile\vendor\font-awesome\HELP-US-OUT.txt" />
+    <Content Include="Content\SiteFile\vendor\jquery.cookie\jquery.cookie.js" />
+    <Content Include="Content\SiteFile\vendor\jquery.cookie\MIT-LICENSE.txt" />
+    <Content Include="Content\SiteFile\vendor\jquery\core.js" />
+    <Content Include="Content\SiteFile\vendor\jquery\jquery.js" />
+    <Content Include="Content\SiteFile\vendor\jquery\jquery.min.js" />
+    <Content Include="Content\SiteFile\vendor\jquery\jquery.slim.js" />
+    <Content Include="Content\SiteFile\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\SiteFile\vendor\owl.carousel2.thumbs\owl.carousel2.thumbs.js" />
+    <Content Include="Content\SiteFile\vendor\owl.carousel2.thumbs\owl.carousel2.thumbs.min.js" />
+    <Content Include="Content\SiteFile\vendor\owl.carousel\assets\ajax-loader.gif" />
+    <Content Include="Content\SiteFile\vendor\owl.carousel\assets\owl.carousel.css" />
+    <Content Include="Content\SiteFile\vendor\owl.carousel\assets\owl.carousel.min.css" />
+    <Content Include="Content\SiteFile\vendor\owl.carousel\assets\owl.theme.default.css" />
+    <Content Include="Content\SiteFile\vendor\owl.carousel\assets\owl.theme.default.min.css" />
+    <Content Include="Content\SiteFile\vendor\owl.carousel\assets\owl.theme.green.css" />
+    <Content Include="Content\SiteFile\vendor\owl.carousel\assets\owl.theme.green.min.css" />
+    <Content Include="Content\SiteFile\vendor\owl.carousel\assets\owl.video.play.png" />
+    <Content Include="Content\SiteFile\vendor\owl.carousel\owl.carousel.js" />
+    <Content Include="Content\SiteFile\vendor\owl.carousel\owl.carousel.min.js" />
+    <Content Include="Content\SiteFile\vendor\popper.js\esm\popper-utils.js" />
+    <Content Include="Content\SiteFile\vendor\popper.js\esm\popper-utils.min.js" />
+    <Content Include="Content\SiteFile\vendor\popper.js\esm\popper.js" />
+    <Content Include="Content\SiteFile\vendor\popper.js\esm\popper.min.js" />
+    <Content Include="Content\SiteFile\vendor\popper.js\popper-utils.js" />
+    <Content Include="Content\SiteFile\vendor\popper.js\popper-utils.min.js" />
+    <Content Include="Content\SiteFile\vendor\popper.js\popper.js" />
+    <Content Include="Content\SiteFile\vendor\popper.js\popper.min.js" />
+    <Content Include="Content\SiteFile\vendor\popper.js\umd\popper-utils.js" />
+    <Content Include="Content\SiteFile\vendor\popper.js\umd\popper-utils.min.js" />
+    <Content Include="Content\SiteFile\vendor\popper.js\umd\popper.js" />
+    <Content Include="Content\SiteFile\vendor\popper.js\umd\popper.min.js" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\AUTHORS.txt" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\Vazirmatn-FD-NL-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\Vazirmatn-FD-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\Vazirmatn-NL-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\Vazirmatn-UI-FD-NL-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\Vazirmatn-UI-FD-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\Vazirmatn-UI-NL-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\Vazirmatn-UI-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\OFL.txt" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\Vazirmatn-RD-FD-NL-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\Vazirmatn-RD-FD-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\Vazirmatn-RD-NL-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\Vazirmatn-RD-UI-FD-NL-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\Vazirmatn-RD-UI-FD-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\Vazirmatn-RD-UI-NL-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\Vazirmatn-RD-UI-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\Vazirmatn-RD-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Vazirmatn-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Vazirmatn-Variable-font-face.css" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\راهنما.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\SiteFile\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Content\SiteFile\vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\SiteFile\vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\SiteFile\vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\SiteFile\vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\SiteFile\vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\SiteFile\vendor\jquery.cookie\component.json" />
+    <Content Include="Content\SiteFile\vendor\jquery.cookie\cookie.jquery.json" />
+    <Content Include="Content\SiteFile\vendor\popper.js\umd\popper.js.flow" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\CHANGELOG.md" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\ttf\Vazirmatn-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\ttf\Vazirmatn-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\ttf\Vazirmatn-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\ttf\Vazirmatn-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\ttf\Vazirmatn-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\ttf\Vazirmatn-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\ttf\Vazirmatn-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\ttf\Vazirmatn-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\ttf\Vazirmatn-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\variable\Vazirmatn[wght].ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\webfonts\Vazirmatn-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\webfonts\Vazirmatn-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\webfonts\Vazirmatn-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\webfonts\Vazirmatn-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\webfonts\Vazirmatn-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\webfonts\Vazirmatn-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\webfonts\Vazirmatn-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\webfonts\Vazirmatn-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\webfonts\Vazirmatn-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\fonts\webfonts\Vazirmatn[wght].woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-FD-NL-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-FD-NL-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-FD-NL-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-FD-NL-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-FD-NL-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-FD-NL-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-FD-NL-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-FD-NL-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-FD-NL-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-FD-NL-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-FD-NL-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-FD-NL-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-FD-NL-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-FD-NL-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-FD-NL-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-FD-NL-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-FD-NL-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-FD-NL-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\ttf\Vazirmatn-FD-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\ttf\Vazirmatn-FD-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\ttf\Vazirmatn-FD-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\ttf\Vazirmatn-FD-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\ttf\Vazirmatn-FD-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\ttf\Vazirmatn-FD-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\ttf\Vazirmatn-FD-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\ttf\Vazirmatn-FD-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\ttf\Vazirmatn-FD-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-FD-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-FD-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-FD-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-FD-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-FD-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-FD-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-FD-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-FD-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-FD-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\ttf\Vazirmatn-NL-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\ttf\Vazirmatn-NL-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\ttf\Vazirmatn-NL-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\ttf\Vazirmatn-NL-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\ttf\Vazirmatn-NL-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\ttf\Vazirmatn-NL-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\ttf\Vazirmatn-NL-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\ttf\Vazirmatn-NL-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\ttf\Vazirmatn-NL-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\variable\Vazirmatn-NL[wght].ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\webfonts\Vazirmatn-NL-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\webfonts\Vazirmatn-NL-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\webfonts\Vazirmatn-NL-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\webfonts\Vazirmatn-NL-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\webfonts\Vazirmatn-NL-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\webfonts\Vazirmatn-NL-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\webfonts\Vazirmatn-NL-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\webfonts\Vazirmatn-NL-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\webfonts\Vazirmatn-NL-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\Non-Latin\fonts\webfonts\Vazirmatn-NL[wght].woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-UI-FD-NL-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-UI-FD-NL-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-UI-FD-NL-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-UI-FD-NL-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-UI-FD-NL-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-UI-FD-NL-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-UI-FD-NL-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-UI-FD-NL-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-UI-FD-NL-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-UI-FD-NL-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-UI-FD-NL-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-UI-FD-NL-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-UI-FD-NL-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-UI-FD-NL-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-UI-FD-NL-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-UI-FD-NL-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-UI-FD-NL-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-UI-FD-NL-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-UI-FD-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-UI-FD-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-UI-FD-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-UI-FD-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-UI-FD-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-UI-FD-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-UI-FD-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-UI-FD-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-UI-FD-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-UI-FD-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-UI-FD-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-UI-FD-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-UI-FD-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-UI-FD-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-UI-FD-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-UI-FD-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-UI-FD-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-UI-FD-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-UI-NL-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-UI-NL-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-UI-NL-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-UI-NL-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-UI-NL-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-UI-NL-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-UI-NL-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-UI-NL-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-UI-NL-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-UI-NL-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-UI-NL-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-UI-NL-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-UI-NL-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-UI-NL-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-UI-NL-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-UI-NL-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-UI-NL-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-UI-NL-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\ttf\Vazirmatn-UI-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\ttf\Vazirmatn-UI-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\ttf\Vazirmatn-UI-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\ttf\Vazirmatn-UI-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\ttf\Vazirmatn-UI-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\ttf\Vazirmatn-UI-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\ttf\Vazirmatn-UI-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\ttf\Vazirmatn-UI-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\ttf\Vazirmatn-UI-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\webfonts\Vazirmatn-UI-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\webfonts\Vazirmatn-UI-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\webfonts\Vazirmatn-UI-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\webfonts\Vazirmatn-UI-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\webfonts\Vazirmatn-UI-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\webfonts\Vazirmatn-UI-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\webfonts\Vazirmatn-UI-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\webfonts\Vazirmatn-UI-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\misc\UI\fonts\webfonts\Vazirmatn-UI-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\README.md" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\ttf\Vazirmatn-RD-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\ttf\Vazirmatn-RD-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\ttf\Vazirmatn-RD-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\ttf\Vazirmatn-RD-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\ttf\Vazirmatn-RD-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\ttf\Vazirmatn-RD-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\ttf\Vazirmatn-RD-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\ttf\Vazirmatn-RD-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\ttf\Vazirmatn-RD-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\variable\Vazirmatn-RD[wght].ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\webfonts\Vazirmatn-RD-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\webfonts\Vazirmatn-RD-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\webfonts\Vazirmatn-RD-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\webfonts\Vazirmatn-RD-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\webfonts\Vazirmatn-RD-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\webfonts\Vazirmatn-RD-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\webfonts\Vazirmatn-RD-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\webfonts\Vazirmatn-RD-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\webfonts\Vazirmatn-RD-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\fonts\webfonts\Vazirmatn-RD[wght].woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-FD-NL-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-FD-NL-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-FD-NL-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-FD-NL-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-FD-NL-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-FD-NL-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-FD-NL-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-FD-NL-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-FD-NL-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-FD-NL-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-FD-NL-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-FD-NL-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-FD-NL-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-FD-NL-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-FD-NL-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-FD-NL-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-FD-NL-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-FD-NL-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\ttf\Vazirmatn-RD-FD-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\ttf\Vazirmatn-RD-FD-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\ttf\Vazirmatn-RD-FD-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\ttf\Vazirmatn-RD-FD-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\ttf\Vazirmatn-RD-FD-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\ttf\Vazirmatn-RD-FD-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\ttf\Vazirmatn-RD-FD-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\ttf\Vazirmatn-RD-FD-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\ttf\Vazirmatn-RD-FD-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-RD-FD-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-RD-FD-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-RD-FD-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-RD-FD-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-RD-FD-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-RD-FD-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-RD-FD-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-RD-FD-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Farsi-Digits\fonts\webfonts\Vazirmatn-RD-FD-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\ttf\Vazirmatn-RD-NL-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\ttf\Vazirmatn-RD-NL-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\ttf\Vazirmatn-RD-NL-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\ttf\Vazirmatn-RD-NL-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\ttf\Vazirmatn-RD-NL-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\ttf\Vazirmatn-RD-NL-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\ttf\Vazirmatn-RD-NL-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\ttf\Vazirmatn-RD-NL-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\ttf\Vazirmatn-RD-NL-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\variable\Vazirmatn-RD-NL[wght].ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\webfonts\Vazirmatn-RD-NL-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\webfonts\Vazirmatn-RD-NL-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\webfonts\Vazirmatn-RD-NL-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\webfonts\Vazirmatn-RD-NL-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\webfonts\Vazirmatn-RD-NL-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\webfonts\Vazirmatn-RD-NL-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\webfonts\Vazirmatn-RD-NL-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\webfonts\Vazirmatn-RD-NL-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\webfonts\Vazirmatn-RD-NL-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\Non-Latin\fonts\webfonts\Vazirmatn-RD-NL[wght].woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-FD-NL-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-FD-NL-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-FD-NL-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-FD-NL-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-FD-NL-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-FD-NL-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-FD-NL-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-FD-NL-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-FD-NL-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-FD-NL-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-FD-NL-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-FD-NL-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-FD-NL-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-FD-NL-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-FD-NL-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-FD-NL-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-FD-NL-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-FD-NL-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-RD-UI-FD-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-RD-UI-FD-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-RD-UI-FD-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-RD-UI-FD-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-RD-UI-FD-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-RD-UI-FD-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-RD-UI-FD-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-RD-UI-FD-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\ttf\Vazirmatn-RD-UI-FD-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-RD-UI-FD-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-RD-UI-FD-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-RD-UI-FD-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-RD-UI-FD-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-RD-UI-FD-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-RD-UI-FD-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-RD-UI-FD-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-RD-UI-FD-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Farsi-Digits\fonts\webfonts\Vazirmatn-RD-UI-FD-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-NL-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-NL-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-NL-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-NL-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-NL-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-NL-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-NL-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-NL-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\ttf\Vazirmatn-RD-UI-NL-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-NL-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-NL-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-NL-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-NL-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-NL-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-NL-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-NL-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-NL-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI-Non-Latin\fonts\webfonts\Vazirmatn-RD-UI-NL-Thin.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\ttf\Vazirmatn-RD-UI-Black.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\ttf\Vazirmatn-RD-UI-Bold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\ttf\Vazirmatn-RD-UI-ExtraBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\ttf\Vazirmatn-RD-UI-ExtraLight.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\ttf\Vazirmatn-RD-UI-Light.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\ttf\Vazirmatn-RD-UI-Medium.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\ttf\Vazirmatn-RD-UI-Regular.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\ttf\Vazirmatn-RD-UI-SemiBold.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\ttf\Vazirmatn-RD-UI-Thin.ttf" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\webfonts\Vazirmatn-RD-UI-Black.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\webfonts\Vazirmatn-RD-UI-Bold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\webfonts\Vazirmatn-RD-UI-ExtraBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\webfonts\Vazirmatn-RD-UI-ExtraLight.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\webfonts\Vazirmatn-RD-UI-Light.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\webfonts\Vazirmatn-RD-UI-Medium.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\webfonts\Vazirmatn-RD-UI-Regular.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\webfonts\Vazirmatn-RD-UI-SemiBold.woff2" />
+    <Content Include="Content\SiteFile\vendor\Vazir\vazir\Round-Dots\misc\UI\fonts\webfonts\Vazirmatn-RD-UI-Thin.woff2" />
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\Navbar.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\SetToRedis.cshtml" />
+    <Content Include="Views\Home\ListData.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Content\SiteFile\vendor\font-awesome\less\" />
+    <Folder Include="Content\SiteFile\vendor\font-awesome\scss\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52717</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44313/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
